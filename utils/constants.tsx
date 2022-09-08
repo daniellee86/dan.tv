@@ -1,39 +1,38 @@
-import { BsCode, BsEmojiSunglasses } from 'react-icons/bs';
-import { GiCakeSlice, GiGalaxy, GiLipstick } from 'react-icons/gi';
-import { FaPaw, FaMedal, FaGamepad } from 'react-icons/fa';
+
+import { MdCode, MdOutlinePets, MdOutlineLandscape, MdOutlineSportsBasketball, MdOutlineLocalActivity, MdOutlineVideogameAsset, MdOutlineFastfood, MdStarOutline } from "react-icons/md";
 
 export const topics = [
   {
-    name: 'development',
-    icon: <BsCode />,
+    name: 'coding',
+    icon: <MdCode />,
   },
   {
     name: 'comedy',
-    icon: <BsEmojiSunglasses />,
+    icon: <MdOutlineLocalActivity />,
   },
   {
     name: 'gaming',
-    icon: <FaGamepad />,
+    icon: <MdOutlineVideogameAsset />,
   },
   {
     name: 'food',
-    icon: <GiCakeSlice />,
+    icon: <MdOutlineFastfood/>,
   },
   {
     name: 'dance',
-    icon: <GiGalaxy />,
+    icon: <MdStarOutline />,
   },
   {
     name: 'beauty',
-    icon: <GiLipstick />,
+    icon: <MdOutlineLandscape />,
   },
   {
     name: 'animals',
-    icon: <FaPaw />,
+    icon: <MdOutlinePets />,
   },
   {
     name: 'sports',
-    icon: <FaMedal />,
+    icon: <MdOutlineSportsBasketball />,
   },
 ];
 
