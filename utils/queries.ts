@@ -58,6 +58,8 @@ export const postDetailQuery = (postId: string | string[]) => {
   return query;
 };
 
+//GROQ - Sanity query language, Graph-Relation Object Queries
+
 export const searchPostsQuery = (searchTerm: string | string[]) => {
   const query = `*[_type == "post" && caption match '${searchTerm}*' || topic match '${searchTerm}*'] {
     _id,
