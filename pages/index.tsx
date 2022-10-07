@@ -1,5 +1,7 @@
 import axios from "axios";
 import { Video } from "../types";
+import NoResults from "../components/NoResults";
+import VideoCard from "../components/VideoCard";
 
 interface IProps {
   videos: Video[];
