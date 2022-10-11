@@ -17,7 +17,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <GoogleOAuthProvider
-      clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}
+      clientId="1092582556758-safsenrove6lbo1nfov5bfl9l3gb0aag.apps.googleusercontent.com"
+      // {`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}
     >
       <div className="xl:w-[1200px] m-auto overflow-hidden h-[100vh]">
         <Navbar />

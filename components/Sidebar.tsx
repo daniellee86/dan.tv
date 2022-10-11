@@ -9,6 +9,7 @@ import SuggestedAccounts from "./SuggestedAccounts";
 import Discover from "./Discover";
 import Footer from "./Footer";
 import useAuthStore from "../store/authStore";
+
 const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
   const { pathname } = useRouter();
