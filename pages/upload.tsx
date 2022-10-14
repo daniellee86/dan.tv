@@ -11,14 +11,24 @@ import useAuthStore from "../store/authStore";
 import { client } from "../utils/client";
 //
 import { topics } from "../utils/constants";
+import { BASE_URL } from "../utils";
 
 const Upload = () => {
+  //STATES
   const [isLoading, setIsLoading] = useState(false);
   const [videoAsset, setVideoAsset] = useState<
     SanityAssetDocument | undefined
   >();
   const [wrongFileType, setWrongFileType] = useState(false);
+  const [caption, setCaption] = useState("");
+  const [category, setCategory] = useState(topics[0].name);
+  const [savingPost, setSavingPost] = useState(false);
 
+  //INITIALISE
+  const { userProfile }: { userProfile: any } = useAuthStore();
+  const router = useRouter();
+
+  //UPLOAD FUNCTION
   const uploadVideo = async (e: any) => {
     const selectedFile = e.target.files[0];
     const fileTypes = ["video/mp4", "video/webm", "video/ogg"];
@@ -36,6 +46,35 @@ const Upload = () => {
     } else {
       setIsLoading(false);
       setWrongFileType(true);
+    }
+  };
+
+  //POST AND DOCUMENT FUNCTION
+  const handlePost = async () => {
+    if (caption && videoAsset?._id && category) {
+      setSavingPost(true);
+
+      const document = {
+        _type: "post",
+        caption,
+        video: {
+          _type: "file",
+          asset: {
+            _type: "reference",
+            _ref: videoAsset?._id,
+          },
+        },
+        userId: userProfile?._id,
+        postedBy: {
+          _type: "postedBy",
+          _ref: userProfile?._id,
+        },
+        topic: category,
+      };
+
+      await axios.post(`${BASE_URL}/api/post`, document);
+
+      router.push("/");
     }
   };
 
@@ -103,14 +142,18 @@ const Upload = () => {
           <label className="text-md font-medium">Caption</label>
           <input
             type="text"
-            value=""
-            onChange={() => {}}
+            value={caption}
+            onChange={(e) => {
+              setCaption(e.target.value);
+            }}
             className="rounded outline-none text-md border-2 border-gray-200 p-2"
           />
           <label className="text-md font-medium">Choose a category</label>
           <select
             className="outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer"
-            onChange={() => {}}
+            onChange={(e) => {
+              setCategory(e.target.value);
+            }}
           >
             {topics.map((topic) => (
               <option
@@ -131,7 +174,7 @@ const Upload = () => {
               Discard
             </button>
             <button
-              onClick={() => {}}
+              onClick={handlePost}
               type="button"
               className="bg-[#f51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
             >
