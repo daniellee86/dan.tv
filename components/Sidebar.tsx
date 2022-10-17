@@ -45,10 +45,10 @@ const Sidebar: NextPage = () => {
           </div>
 
           <Discover />
-          {/* <SuggestedAccounts
-            fetchAllUsers={fetchAllUsers}
-            allUsers={allUsers}
-          /> */}
+          <SuggestedAccounts
+          // fetchAllUsers={fetchAllUsers}
+          // allUsers={allUsers}
+          />
           <Footer />
         </div>
       )}
