@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { NextPage } from "next";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
-import { ImCancelCircle } from "react-icons/im";
+// import { AiFillHome, AiOutlineMenu } from "react-icons/ai";
+// import { ImCancelCircle } from "react-icons/im";
+import { MdOutlineCancel, MdOutlineMenu, MdOutlineHome } from "react-icons/md";
 
 import SuggestedAccounts from "./SuggestedAccounts";
 import Discover from "./Discover";
@@ -27,7 +28,7 @@ const Sidebar: NextPage = () => {
         className="block xl:hidden m-2 ml-4 mt-3 text-xl"
         onClick={() => setShowSidebar(!showSidebar)}
       >
-        {showSidebar ? <ImCancelCircle /> : <AiOutlineMenu />}
+        {showSidebar ? <MdOutlineCancel /> : <MdOutlineMenu />}
       </div>
       {showSidebar && (
         <div className="xl:w-400 w-20 flex flex-col justify-start mb-10 border-r-2 border-gray-100 xl:border-0 p-3 ">
@@ -35,7 +36,7 @@ const Sidebar: NextPage = () => {
             <Link href="/">
               <div className={pathname === "/" ? activeLink : normalLink}>
                 <p className="text-2xl">
-                  <AiFillHome />
+                  <MdOutlineHome />
                 </p>
                 <span className="capitalize text-xl hidden xl:block">
                   For You

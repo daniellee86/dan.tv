@@ -1,3 +1,5 @@
+//GROQ - Sanity query language, Graph-Relation Object Queries
+
 export const allPostsQuery = () => {
   const query = `*[_type == "post"] | order(_createdAt desc){
     _id,

@@ -1,41 +1,65 @@
-
-import { MdCode, MdOutlinePets, MdOutlineLandscape, MdOutlineSportsBasketball, MdOutlineLocalActivity, MdOutlineVideogameAsset, MdOutlineFastfood, MdStarOutline } from "react-icons/md";
+import {
+  MdCode,
+  MdOutlineLandscape,
+  MdOutlineSportsBasketball,
+  MdOutlineLocalActivity,
+  MdOutlineVideogameAsset,
+  MdOutlineFastfood,
+  MdStarOutline,
+} from "react-icons/md";
 
 export const topics = [
   {
-    name: 'coding',
+    name: "coding",
     icon: <MdCode />,
   },
   {
-    name: 'comedy',
+    name: "comedy",
     icon: <MdOutlineLocalActivity />,
   },
   {
-    name: 'gaming',
+    name: "gaming",
     icon: <MdOutlineVideogameAsset />,
   },
   {
-    name: 'food',
-    icon: <MdOutlineFastfood/>,
+    name: "food",
+    icon: <MdOutlineFastfood />,
   },
   {
-    name: 'dance',
+    name: "dance",
     icon: <MdStarOutline />,
   },
   {
-    name: 'beauty',
+    name: "beauty",
     icon: <MdOutlineLandscape />,
   },
   {
-    name: 'animals',
-    icon: <MdOutlinePets />,
-  },
-  {
-    name: 'sports',
+    name: "sports",
     icon: <MdOutlineSportsBasketball />,
   },
 ];
 
-export const footerList1 = ['About', 'Newsroom', 'Store', 'Contact', 'Careers', 'ByteDance', 'Creator Directory']
-export const footerList2 = [ 'TikTik for Good','Advertise','Developers','Transparency','TikTik Rewards' ]
-export const footerList3 = [ 'Help', 'Safety', 'Terms', 'Privacy', 'Creator Portal', 'Community Guidelines' ]
+export const footerList1 = [
+  "About",
+  "Newsroom",
+  "Store",
+  "Contact",
+  "Careers",
+  "ByteDance",
+  "Creator Directory",
+];
+export const footerList2 = [
+  "TikTik for Good",
+  "Advertise",
+  "Developers",
+  "Transparency",
+  "TikTik Rewards",
+];
+export const footerList3 = [
+  "Help",
+  "Safety",
+  "Terms",
+  "Privacy",
+  "Creator Portal",
+  "Community Guidelines",
+];
