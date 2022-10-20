@@ -1,3 +1,6 @@
+//EXTEND TAILWINDS COLOURS WITH OUR THEME
+const themeColors = require("./theme-colors.json");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -5,6 +8,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      sepia: {
+        25: ".25",
+        50: ".50",
+        75: ".75",
+      },
       width: {
         1600: "1600px",
         300: "300px",
@@ -30,14 +38,19 @@ module.exports = {
         blur: "#030303",
       },
       colors: {
-        primary: "rgb(22, 24, 35)",
+        ...themeColors,
       },
       height: {
         "88vh": "88vh",
       },
       backgroundImage: {
         "blurred-img":
-          "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsaaJ7s4lqcBF4IDROVPzrlL5fexcwRmDlnuEYQenWTt1DejFY5kmYDref2a0Hp2eE4aw&usqp=CAU')",
+          "url('https://raw.githubusercontent.com/daniellee86/danielCloughPortfolio/main/src/assets/noise.gif')",
+      },
+      boxShadow: {
+        sidebarHover:
+          "inset 5px 5px 10px #090808, inset -5px -5px 10px #171616",
+        forYou: "5px 5px 10px #090808, -5px -5px 10px #171616;",
       },
     },
   },

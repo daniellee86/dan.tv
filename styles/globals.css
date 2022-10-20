@@ -7,6 +7,8 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  background-color: #100f0f;
 }
 
 a {
@@ -27,7 +29,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(237, 237, 237);
+  background-color: #eeedde;
   border-radius: 40px;
 }
 

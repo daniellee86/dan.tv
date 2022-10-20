@@ -67,8 +67,8 @@ const VideoCard: NextPage<IProps> = ({
   return (
     <div className="flex flex-col border-b-2 border-gray-200 pb-6">
       <div>
-        <div className="flex gap-3 p-2 cursor-pointer font-semibold rounded ">
-          <div className="md:w-16 md:h-16 w-10 h-10">
+        <div className="flex flex-col sm:flex-row gap-4 p-2 cursor-pointer font-semibold rounded ">
+          <div className="md:w-16 md:h-16 w-10 h-10 border-2 border-lightGray rounded-full">
             <Link href={`/profile/${postedBy?._id}`}>
               <>
                 <Image
@@ -85,23 +85,23 @@ const VideoCard: NextPage<IProps> = ({
           <div>
             <Link href={`/profile/${postedBy?._id}`}>
               <div className="flex items-center gap-2">
-                <p className="flex gap-2 items-center md:text-md font-bold text-primary">
+                <p className="flex gap-2 items-center md:text-md font-bold text-lightGray">
                   {postedBy.userName}{" "}
                   <GoVerified className="text-blue-400 text-md" />
                 </p>
-                <p className="capitalize font-medium text-xs text-gray-500 hidden md:block">
+                <p className="capitalize font-medium text-xs text-gray-400 hidden md:block">
                   {postedBy.userName}
                 </p>
               </div>
             </Link>
             <Link href={`/detail/${_id}`}>
-              <p className="mt-2 font-normal ">{caption}</p>
+              <p className="mt-2 font-normal text-lightGray ">{caption}</p>
             </Link>
           </div>
         </div>
       </div>
 
-      <div className="lg:ml-20 flex gap-4 relative">
+      <div className="flex gap-4 justify-center lg:ml-20 lg:justify-start relative">
         <div
           onMouseEnter={() => setIsHover(true)}
           onMouseLeave={() => setIsHover(false)}
@@ -112,28 +112,28 @@ const VideoCard: NextPage<IProps> = ({
               loop
               ref={videoRef}
               src={video.asset.url}
-              className="lg:w-[600px] h-[300px] md:h-[400px] lg:h-[528px] w-[200px] rounded-2xl cursor-pointer bg-gray-100"
+              className="h-[350px] w-[250px] sm:h-[400px] sm:w-[450px] md:h-[400px] lg:h-[600px] lg:w-[700px] rounded-2xl cursor-pointer bg-blurred-img bg-primaryOne bg-blend-overlay"
             ></video>
           </Link>
 
           {isHover && (
-            <div className="absolute bottom-6 cursor-pointer left-12 md:left-14 lg:left-0 flex gap-10 lg:justify-between w-[100px] md:w-[50px] lg:w-[600px] p-3">
+            <div className="absolute  cursor-pointer inset-x-0 bottom-5  flex justify-center gap-10">
               {playing ? (
                 <button onClick={onVideoPress}>
-                  <BsFillPauseFill className="text-black text-2xl lg:text-4xl " />
+                  <BsFillPauseFill className="text-colorTwo text-2xl lg:text-4xl " />
                 </button>
               ) : (
                 <button onClick={onVideoPress}>
-                  <BsFillPlayFill className="text-black text-2xl lg:text-4xl " />
+                  <BsFillPlayFill className="text-lightGray text-2xl lg:text-4xl " />
                 </button>
               )}
               {isVideoMuted ? (
                 <button onClick={() => setIsVideoMuted(false)}>
-                  <HiVolumeOff className="text-black text-2xl lg:text-4xl " />
+                  <HiVolumeOff className="text-colorTwo  text-2xl lg:text-4xl " />
                 </button>
               ) : (
                 <button onClick={() => setIsVideoMuted(true)}>
-                  <HiVolumeUp className="text-black text-2xl lg:text-4xl " />
+                  <HiVolumeUp className="text-lightGray text-2xl lg:text-4xl " />
                 </button>
               )}
             </div>
