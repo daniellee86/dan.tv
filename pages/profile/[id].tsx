@@ -17,12 +17,17 @@ interface IProps {
 }
 
 const Profile = ({ data }: IProps) => {
+  console.log(data);
   const [showUserVideos, setShowUserVideos] = useState(true);
   const [videosList, setVideosList] = useState<Video[]>([]);
   const { user, userVideos, userLikedVideos } = data;
 
-  const videos = showUserVideos ? "border-b-2 border-black" : "text-gray-400";
-  const liked = !showUserVideos ? "border-b-2 border-black" : "text-gray-400";
+  const videos = showUserVideos
+    ? "border-b-2 border-colorOne"
+    : "text-gray-400";
+  const liked = !showUserVideos
+    ? "border-b-2 border-colorOne"
+    : "text-gray-400";
 
   useEffect(() => {
     if (showUserVideos) {
@@ -34,7 +39,7 @@ const Profile = ({ data }: IProps) => {
 
   return (
     <div className="w-full">
-      <div className="flex gap-6 md:gap-10 mb-4 bg-white w-full">
+      <div className="flex gap-6 md:gap-10 mb-4 w-full items-center">
         <div className="w-16 h-16 md:w-32 md:h-32">
           <Image
             src={user.image}
@@ -46,24 +51,44 @@ const Profile = ({ data }: IProps) => {
           />
         </div>
         <div className="flex flex-col justify-center">
-          <p className="md:text-2xl tracking-wider flex gap-1 items-center justify-center text-md font-bold text-primary lowercase">
+          <p className="md:text-2xl tracking-wider flex gap-1 items-center justify-center text-md font-bold text-primary lowercase text-lightGray">
             {user.userName.replaceAll(" ", "")}
             <GoVerified className="text-blue-400" />
           </p>
           <p className="captalize text-gray-400 text-xs">{user.userName}</p>
         </div>
+        <div
+          id="profile-info"
+          className="hidden lg:flex flex-col gap-3 ml-[15%] text-sm"
+        >
+          <div id="created">
+            <p className="text-lightGray">
+              Joined: {user._createdAt.slice(0, 10)}
+            </p>
+          </div>
+          <div id="posts">
+            <p className="text-lightGray ">
+              Posted: {userVideos.length} videos
+            </p>
+          </div>
+          <div id="likes">
+            <p className="text-lightGray">
+              Liked: {userLikedVideos.length} videos
+            </p>
+          </div>
+        </div>
       </div>
 
       <div>
-        <div className="flex gap-10 my-10 border-b-2 border-gray-200 bg-white w-full">
+        <div className="flex gap-10 my-10 border-b-2 border-primaryTwo  w-full">
           <p
-            className={`text-xl font-semibold cursor-pointer mt-2 ${videos}`}
+            className={`text-xl text-lightGray font-semibold cursor-pointer mt-2 ${videos}`}
             onClick={() => setShowUserVideos(true)}
           >
             Videos
           </p>
           <p
-            className={`text-xl font-semibold cursor-pointer mt-2 ${liked}`}
+            className={`text-xl text-lightGray font-semibold cursor-pointer mt-2 ${liked}`}
             onClick={() => setShowUserVideos(false)}
           >
             Liked
