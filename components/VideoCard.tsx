@@ -112,7 +112,7 @@ const VideoCard: NextPage<IProps> = ({
               loop
               ref={videoRef}
               src={video.asset.url}
-              className="h-[350px] w-[250px] sm:h-[400px] sm:w-[450px] md:h-[400px] lg:h-[600px] lg:w-[700px] rounded-2xl cursor-pointer bg-blurred-img bg-primaryOne bg-blend-overlay"
+              className="h-[350px] w-[250px] sm:h-[400px] sm:w-[450px] md:h-[400px] lg:h-[600px] lg:w-[700px] rounded-2xl cursor-pointer bg-blurred-img bg-primaryOne bg-blend-darken"
             ></video>
           </Link>
 

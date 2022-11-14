@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { GoVerified } from "react-icons/go";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 import VideoCard from "../../components/VideoCard";
 import NoResults from "../../components/NoResults";
@@ -24,10 +25,10 @@ const Profile = ({ data }: IProps) => {
 
   const videos = showUserVideos
     ? "border-b-2 border-colorOne"
-    : "text-gray-400";
+    : "text-gray-600";
   const liked = !showUserVideos
     ? "border-b-2 border-colorOne"
-    : "text-gray-400";
+    : "text-gray-600";
 
   useEffect(() => {
     if (showUserVideos) {
@@ -53,7 +54,16 @@ const Profile = ({ data }: IProps) => {
         <div className="flex flex-col justify-center">
           <p className="md:text-2xl tracking-wider flex gap-1 items-center justify-center text-md font-bold text-primary lowercase text-lightGray">
             {user.userName.replaceAll(" ", "")}
-            <GoVerified className="text-blue-400" />
+            <motion.span
+              key={user.userName}
+              initial={{ opacity: 0, scale: 0.75 }}
+              transition={{ ease: "easeInOut", delay: 1.5, duration: 0.75 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              id="icon"
+            >
+              <GoVerified className="text-blue-400" />
+            </motion.span>
           </p>
           <p className="captalize text-gray-400 text-xs">{user.userName}</p>
         </div>
@@ -61,21 +71,42 @@ const Profile = ({ data }: IProps) => {
           id="profile-info"
           className="hidden lg:flex flex-col gap-3 ml-[15%] text-sm"
         >
-          <div id="created">
+          <motion.div
+            key={user.userName}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ ease: "easeOut", delay: 0.3, duration: 0.75 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            id="created"
+          >
             <p className="text-lightGray">
               Joined: {user._createdAt.slice(0, 10)}
             </p>
-          </div>
-          <div id="posts">
+          </motion.div>
+          <motion.div
+            key={userVideos.length}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ ease: "easeOut", delay: 0.5, duration: 0.75 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            id="posts"
+          >
             <p className="text-lightGray ">
               Posted: {userVideos.length} videos
             </p>
-          </div>
-          <div id="likes">
+          </motion.div>
+          <motion.div
+            key={userLikedVideos.length}
+            initial={{ opacity: 0, y: 20 }}
+            transition={{ ease: "easeOut", delay: 0.7, duration: 0.75 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            id="likes"
+          >
             <p className="text-lightGray">
               Liked: {userLikedVideos.length} videos
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 

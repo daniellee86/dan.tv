@@ -79,16 +79,16 @@ const Upload = () => {
   };
 
   return (
-    <div className="flex w-full h-full absolute left-0 top-[60px] mb-10 pt-10 lg:pt-20 bg-[#f8f8f8] justify-center">
-      <div className=" bg-white rounded-lg xl:h-[90vh] w-[90%] lg:w-[80%] xl:w-[70%]  2xl:w-[60%] flex flex-wrap gap-6 justify-between items-center p-14 pt-6 ">
+    <div className="flex w-full h-full absolute left-0 top-[60px] bg-primaryOne justify-center items-center">
+      <div className=" bg-primaryTwo rounded-2xl h-fit w-[90%] lg:w-[80%] xl:w-[70%]  2xl:w-[65%] flex flex-wrap gap-6 justify-center md:justify-between items-center px-14 py-5 ">
         <div>
           <div>
-            <p className="text-2xl font-bold">Upload Video</p>
+            <p className="text-2xl font-bold text-lightGray">Upload Video</p>
             <p className="text-md text-gray-400 mt-1">
               Post a video to your account
             </p>
           </div>
-          <div className="border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center outline-none mt-10 w-[260px] h-[460px] p-10 cursor-pointer hover:border-red-300 hover:bg-gray-100">
+          <div className="border-dashed rounded-xl border-4 border-gray-200 flex flex-col justify-center items-center outline-none mt-10 w-[260px] h-[460px] p-10 cursor-pointer hover:border-colorTwo">
             {isLoading ? (
               <p>Uploading...</p>
             ) : (
@@ -99,7 +99,7 @@ const Upload = () => {
                       src={videoAsset.url}
                       loop
                       controls
-                      className="rounded-xl h-[450px] mt-16 bg-black"
+                      className="rounded-xl h-[450px] bg-black"
                     ></video>
                   </div>
                 ) : (
@@ -109,7 +109,7 @@ const Upload = () => {
                         <p className="font-bold text-xl">
                           <FaCloudUploadAlt className="text-gray-300 text-6xl" />
                         </p>
-                        <p className="text-xl font-semibold">Upload Video</p>
+                        <p className="text-xl text-lightGray font-semibold">Upload Video</p>
                       </div>
                       <p className="text-gray-400 text-center mt-10 text-sm leading-10">
                         MP4 or WebM or ogg <br />
@@ -117,7 +117,7 @@ const Upload = () => {
                         Up to 10 minutes <br />
                         Less than 2GB
                       </p>
-                      <p className="bg-[#F51997] text-center mt-10 rounded text-white text-md font-medium p-2 w-52 outline-none">
+                      <p className="bg-primaryOne text-center mt-10 rounded-lg text-colorOne text-md font-medium p-2 w-52 outline-none">
                         Select File
                       </p>
                     </div>
@@ -139,7 +139,7 @@ const Upload = () => {
           </div>
         </div>
         <div className="flex flex-col gap-3 pb-10">
-          <label className="text-md font-medium">Caption</label>
+          <label className="text-md font-medium text-lightGray">Caption</label>
           <input
             type="text"
             value={caption}
@@ -148,7 +148,7 @@ const Upload = () => {
             }}
             className="rounded outline-none text-md border-2 border-gray-200 p-2"
           />
-          <label className="text-md font-medium">Choose a category</label>
+          <label className="text-md font-medium text-lightGray">Choose a category</label>
           <select
             className="outline-none border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer"
             onChange={(e) => {
@@ -176,7 +176,7 @@ const Upload = () => {
             <button
               onClick={handlePost}
               type="button"
-              className="bg-[#f51997] text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
+              className="bg-colorOne text-white text-md font-medium p-2 rounded w-28 lg:w-44 outline-none"
             >
               Post
             </button>

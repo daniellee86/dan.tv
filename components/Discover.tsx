@@ -3,12 +3,14 @@ import { useRouter } from "next/router";
 
 import { topics } from "../utils/constants";
 
+import { motion } from "framer-motion"
+
 const Discover = () => {
   const router = useRouter();
   const { topic } = router.query;
 
   const activeTopicStyle =
-    "xl:rounded-xl xl:hover:shadow-sidebarHover hover:text-colorTwo px-3 py-2 flex items-center gap-4 justify-center xl:justify-start  cursor-pointer text-colorOne ";
+    "xl:rounded-xl xl:hover:shadow-sidebarHover hover:text-colorTwo px-3 py-2 flex items-center gap-4 justify-center xl:justify-start  cursor-pointer text-colorOne";
 
   const topicStyle =
     "group xl:rounded-xl xl:hover:shadow-sidebarHover hover:text-lightGray px-3 py-2 flex items-center gap-4 justify-center xl:justify-start cursor-pointer text-darkGray";
@@ -19,9 +21,13 @@ const Discover = () => {
         Popular Topics
       </p>
       <div className="flex gap-3 flex-col justify-center xl:justify-start">
-        {topics.map((item) => (
+        {topics.map((item, i) => (
           <Link href={`/?topic=${item.name}`} key={item.name}>
-            <div
+            <motion.div
+              initial={{ x: -150 }} 
+              transition={{ ease: "easeInOut", delay: i * 0.3 , duration: 0.75 }} 
+              whileInView={{ x: 0}} 
+              viewport={{ once: true }} 
               className={topic === item.name ? activeTopicStyle : topicStyle}
             >
               <span className="text-3xl xl:text-md group-hover:text-colorOne">
@@ -30,7 +36,7 @@ const Discover = () => {
               <span className="text-sm hidden xl:block capitalize ">
                 {item.name}
               </span>
-            </div>
+            </motion.div>
           </Link>
         ))}
       </div>

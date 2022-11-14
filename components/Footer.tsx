@@ -18,6 +18,8 @@ const Footer = () => {
     <div className="mt-6 hidden xl:block">
       <List items={footerList1} mt={false} />
       <List items={footerList3} mt />
+       {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img className="w-1/2 pt-5" alt="logo" src="logo.png"/>
       <p className="text-colorOne text-sm mt-5">Daniel Clough - 2022</p>
     </div>
   );

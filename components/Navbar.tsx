@@ -7,6 +7,7 @@ import { BiSearch } from "react-icons/bi";
 import { IoMdAdd } from "react-icons/io";
 import { BsBell } from "react-icons/bs";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
+import { motion } from "framer-motion"
 
 import useAuthStore from "../store/authStore";
 import { IUser } from "../types";
@@ -34,9 +35,14 @@ const Navbar = () => {
     <div className="w-full flex justify-between items-center border-b-2 border-primaryThree py-2 px-4">
       <Link href="/">
         <div className="w-[100px] md:w-[129px] flex justify-start cursor-pointer">
-          <h1 className="font-bold text-lightGray text-2xl underline decoration-wavy decoration-colorOne underline-offset-8 decoration-2">
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.75 }}
+            transition={{ ease: "easeInOut", duration: 0.75 }} 
+            whileInView={{ opacity: 1, scale: 1}} 
+            viewport={{ once: true }} 
+          className="font-bold text-lightGray text-2xl underline decoration-wavy decoration-colorOne underline-offset-8 decoration-2">
             DAN.tv
-          </h1>
+          </motion.h1>
         </div>
       </Link>
 
@@ -63,8 +69,8 @@ const Navbar = () => {
         {user ? (
           <div className="flex gap-5 md:gap-10 items-center">
             <Link href="/upload">
-              <button className="bg-primaryThree p-2 md:px-4 text-md text-lightGray font-semibold flex items-center gap-2 rounded-full">
-                <IoMdAdd className="text-xl text-colorOne" />{" "}
+              <button className="group bg-primaryThree p-2 md:px-4 text-md text-lightGray font-semibold flex items-center gap-2 rounded-full">
+                <IoMdAdd className="text-xl text-colorOne group-hover:animate-spin" />{" "}
                 <span className="hidden md:block">Upload </span>
               </button>
             </Link>

@@ -17,23 +17,23 @@ const Search = ({ videos }: { videos: Video[] }) => {
   const { searchTerm }: any = router.query;
   const { allUsers } = useAuthStore();
 
-  const accounts = isAccounts ? "border-b-2 border-black" : "text-gray-400";
-  const isVideos = !isAccounts ? "border-b-2 border-black" : "text-gray-400";
+  const accounts = isAccounts ? "border-b-2 border-colorOne" : "text-gray-600";
+  const isVideos = !isAccounts ? "border-b-2 border-colorOne" : "text-gray-600";
   const searchedAccounts = allUsers.filter((user: IUser) =>
     user.userName.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div className="w-full">
-      <div className="flex gap-10 my-10 border-b-2 border-gray-200 bg-white w-full">
+      <div className="flex gap-10 my-10 border-b border-primaryTwo w-full">
         <p
-          className={`text-xl font-semibold cursor-pointer mt-2 ${accounts}`}
+          className={`text-xl font-semibold cursor-pointer mt-2 text-lightGray ${accounts}`}
           onClick={() => setIsAccounts(true)}
         >
           Accounts
         </p>
         <p
-          className={`text-xl font-semibold cursor-pointer mt-2 ${isVideos}`}
+          className={`text-xl font-semibold cursor-pointer mt-2 text-lightGray ${isVideos}`}
           onClick={() => setIsAccounts(false)}
         >
           Videos

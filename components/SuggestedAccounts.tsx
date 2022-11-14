@@ -6,6 +6,8 @@ import { GoVerified } from "react-icons/go";
 import useAuthStore from "../store/authStore";
 import { IUser } from "../types";
 
+import { motion } from "framer-motion"
+
 const SuggestedAccounts = () => {
   const { fetchAllUsers, allUsers } = useAuthStore();
 
@@ -24,9 +26,14 @@ const SuggestedAccounts = () => {
           .slice()
           .reverse()
           .slice(0, 6)
-          .map((user: IUser) => (
+          .map((user: IUser, i) => (
             <Link href={`/profile/${user._id}`} key={user._id}>
-              <div className="flex gap-4 grayscale hover:filter-none p-2 xl:p-3 cursor-pointer font-semibold rounded">
+              <motion.div 
+               initial={{ y: 30, opacity: 0 }} 
+               transition={{ ease: "easeInOut", delay: 2.5 , duration: 1.0 }} 
+               whileInView={{ y: 0, opacity: 1}} 
+               viewport={{ once: true }} 
+              className="flex gap-4 grayscale hover:filter-none p-2 xl:p-3 cursor-pointer font-semibold rounded">
                 <div className="w-14 h-14 xl:border-2 xl:border-lightGray rounded-full">
                   <Image
                     src={user.image}
@@ -46,7 +53,7 @@ const SuggestedAccounts = () => {
                     {user.userName}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </Link>
           ))}
       </div>

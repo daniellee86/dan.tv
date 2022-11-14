@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion"
 //ICONS
 import { GoVerified } from "react-icons/go";
 import { MdOutlineCancel } from "react-icons/md";
@@ -29,6 +30,7 @@ const Detail = ({ postDetails }: IProps) => {
   const [isVideoMuted, setIsVideoMuted] = useState(false);
   const [comment, setComment] = useState("");
   const [isPostingComment, setIsPostingComment] = useState(false);
+  const [fade, setFade] = useState(true);
   //MISC INITIALISATIONS
   const videoRef = useRef<HTMLVideoElement>(null);
   const router = useRouter();
@@ -90,10 +92,10 @@ const Detail = ({ postDetails }: IProps) => {
 
   return (
     <div className="flex w-full absolute left-0 top-0 bg-primaryOne flex-wrap lg:flex-nowrap">
-      <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-start bg-blurred-img bg-primaryOne bg-blend-overlay">
+      <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-start bg-blurred-img bg-primaryOne bg-blend-darken">
         <div className="absolute top-4 left-2 lg:left-6 flex gap-6 z-50">
           <p className="cursor-pointer" onClick={() => router.back()}>
-            <MdOutlineCancel className="text-white hover:text-colorTwo text-[35px]" />
+            <MdOutlineCancel className="text-white hover:text-colorTwo text-[25px]" />
           </p>
         </div>
         <div className="relative">
@@ -108,11 +110,13 @@ const Detail = ({ postDetails }: IProps) => {
           </div>
 
           <div className="absolute top-[45%] left-[40%] cursor-pointer">
-            {!playing && (
-              <button onClick={onVideoClick}>
-                <BsFillPlayFill className="text-white text-6xl lg:text-8xl" />
-              </button>
-            )}
+            <button onClick={onVideoClick}>
+              <BsFillPlayFill
+                className={`text-white text-6xl lg:text-8xl transition-all duration-1000 ${
+                  !playing ? "opacity-100" : "opacity-0"
+                }`}
+              />
+            </button>
           </div>
         </div>
 

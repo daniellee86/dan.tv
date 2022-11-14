@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion"
 import { GoVerified } from "react-icons/go";
 
 import useAuthStore from "../store/authStore";
@@ -37,12 +38,16 @@ const Comments = ({
       <h1 className="text-lg font-bold text-primaryOne mb-2">Comments:</h1>
       <div className="overflow-scroll h-[250px] sm:h-[300px] lg:h-[500px]  scrollbar-thumb-primaryOne scrollbar-thin p-5 mb-10">
         {comments?.length > 0 ? (
-          comments.map((item, idx) => (
-            <div key={idx}>
+          comments.map((item, i) => (
+            <div key={i}>
               {allUsers.map(
                 (user: IUser, idx) =>
                   user._id === (item.postedBy._id || item.postedBy._ref) && (
-                    <div
+                    <motion.div
+                    initial={{ opacity: 0, y: 20 }} 
+                    transition={{ ease: "easeOut", delay: i * 0.3, duration: 0.75 }} 
+                    whileInView={{ opacity: 1, y: 0}} 
+                    viewport={{ once: true }} 
                       className="p-2 mb-5 flex flex-col gap-2 border border-primaryTwo rounded-xl"
                       key={idx}
                     >
@@ -72,7 +77,7 @@ const Comments = ({
                       <div>
                         <p className="ml-10">{item.comment}</p>
                       </div>
-                    </div>
+                    </motion.div>
                   )
               )}
             </div>

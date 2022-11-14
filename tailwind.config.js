@@ -13,6 +13,16 @@ module.exports = {
         50: ".50",
         75: ".75",
       },
+      keyframes: {
+        beat: {
+          "0%": { transform: "scale(1.2)" },
+          "50%": { transform: "scale(0.9)" },
+          "100%": { transform: "scale(1)" },
+        },
+      },
+      animation: {
+        beat: "beat 0.8s linear 2 forwards",
+      },
       width: {
         1600: "1600px",
         300: "300px",

@@ -13,14 +13,9 @@ import useAuthStore from "../store/authStore";
 
 const Sidebar: NextPage = () => {
   const [showSidebar, setShowSidebar] = useState<Boolean>(true);
-  const { pathname } = useRouter();
-  const { fetchAllUsers, allUsers }: any = useAuthStore();
 
-  const activeLink =
-    "group xl:shadow-forYou xl:rounded-xl xl:hover:shadow-sidebarHover flex items-center gap-4 p-2 justify-center xl:justify-start cursor-pointer font-semibold text-lightGray";
+  // const { fetchAllUsers, allUsers }: any = useAuthStore();
 
-  const noLink =
-    "xl:rounded-xl xl:hover:shadow-sidebarHover flex items-center gap-4 p-2 justify-center xl:justify-start cursor-pointer font-semibold text-darkGray";
 
   return (
     <div>
@@ -38,9 +33,11 @@ const Sidebar: NextPage = () => {
         <div className="xl:w-300 w-20 flex flex-col justify-start mb-10 border-r border-primaryTwo xl:border-0 p-3 ">
           <div className="xl:border-b-2 border-primaryThree xl:pb-2">
             <Link href="/">
-              <div className={pathname === "/" ? noLink : activeLink}>
+              <div className="group xl:shadow-forYou xl:rounded-xl xl:hover:shadow-sidebarHover flex items-center gap-4 p-2 justify-center xl:justify-start cursor-pointer font-semibold text-lightGray">
                 <p className="text-3xl">
-                  <MdOutlineHome className="group-hover:text-colorOne" />
+                  <MdOutlineHome
+                    className="group-hover:text-colorOne" 
+                  />
                 </p>
                 <span className="capitalize text-md font-semibold hidden xl:block">
                   For You
