@@ -1,4 +1,4 @@
-## Welcome to Dant.tv
+## Welcome to Dan.tv
 
 Welcome to my video social media application. The front end was built using Next.js, TypeScript, Tailwind CSS and Framer-Motion.
 The middleware was implemented using a combination of Next.js API and Sanity.IO's own GROQ (Graph-Relational Object Queries) Query language.
