@@ -92,7 +92,7 @@ const Detail = ({ postDetails }: IProps) => {
 
   return (
     <div className="flex w-full absolute left-0 top-0 bg-primaryOne flex-wrap lg:flex-nowrap">
-      <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-start bg-blurred-img bg-primaryOne bg-blend-darken">
+      <div className="relative flex-2 w-[1000px] lg:w-9/12 flex justify-center items-start bg-[url('../public/noise.gif')] bg-primaryOne bg-blend-darken">
         <div className="absolute top-4 left-2 lg:left-6 flex gap-6 z-50">
           <p className="cursor-pointer" onClick={() => router.back()}>
             <MdOutlineCancel className="text-white hover:text-colorTwo text-[25px]" />
